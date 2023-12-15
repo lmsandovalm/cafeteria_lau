@@ -7,16 +7,21 @@ const DetailProductView = () => {
 
   const [product, setProduct] = useState({});
   useEffect(() => {
-    fetchGet("https://kaoxdc.pythonanywhere.com/api/product/" + id).then(
+    fetchGet("https://fakestoreapi.com/products/" + id).then(
       (response) => setProduct(response)
     );
-  }, {useState});
+  }, [id]);
 
   return (
-    <div className="justify-center items-center">
-      <img src={product.photo}/>
-      <h1>{product.nombre}</h1>
-      <h4>{product.precio}</h4>
+    <div className="grid justify-center items-center">
+      <div className="grid full justify-center items-center rounded-lg ">
+        <img  src={product.image}/>
+        <div className="justify-center items-center text-xl"> 
+          <h1>{product.title}</h1>
+          <h4>{product.price}</h4>
+          <p>{product.description}</p>
+        </div>
+      </div>  
       </div>
   );
 };

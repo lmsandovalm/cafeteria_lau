@@ -2,29 +2,29 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { fetchDelete, fetchPut } from "../../logic/ApiHelper";
 
-const ItemProducto = ({ id, nombre, precio, photo, categoria }) => {
+const ItemProducto = ({ id, title, price, image, category }) => {
   const navigate = useNavigate();
 
   const deleteProduct = (id) => {
-    fetchDelete("https://kaoxdc.pythonanywhere.com/api/producto/", id).then(
+    fetchDelete("https://fakestoreapi.com/products", id).then(
       (response) => {
         response
-          ? navigate("/productos")
+          ? navigate("/products")
           : alert("No se pudo eliminar este producto");
       }
     );
   };
 
   const updateProduc = () => {
-    fetchPut("https://kaoxdc.pythonanywhere.com/api/producto/", )
+    fetchPut("https://fakestoreapi.com/products", )
   };
 
 
   return (
     <div className="mt-10 bg-orange-50 p-4  flex-1 flex-co rounded-lg shadow-lg">
-      <img src={photo} alt="" className="w-60 h-20 object-cover rounded-lg" />
-      <h1 className="mt-6 text-center text-red-950 font-bold">{nombre}</h1>
-      <p className="text-center font-medium mt-6">$ {precio}</p>
+      <img src={image} alt="" className="w-60 h-20 object-cover rounded-lg" />
+      <h1 className="mt-6 text-center text-red-950 font-bold">{title}</h1>
+      <p className="text-center font-medium mt-6">$ {price}</p>
       <button className="text-red-950 bg-orange-300 rounded-lg p-2 mt-6 w-full">
         <NavLink to={`/Producto/${id}`}>Detalle</NavLink>
       </button>
@@ -39,7 +39,7 @@ const ItemProducto = ({ id, nombre, precio, photo, categoria }) => {
         onClick={() => updateProduc()}
         className="w-full mt-4 p-2 shadow-lg rounded-lg text-red-950 bg-orange-300"
       >
-        Modidificar
+        Modificar
       </button>
     </div>
   );

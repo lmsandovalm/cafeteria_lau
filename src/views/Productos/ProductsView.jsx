@@ -8,7 +8,7 @@ function ProductsView() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchGet("https://kaoxdc.pythonanywhere.com/api/producto/").then((response) => {
+    fetchGet("https://fakestoreapi.com/products").then((response) => {
       setProducts(response);
     });    
   }, []);
@@ -26,10 +26,10 @@ function ProductsView() {
               <ItemProducto
                 key={product.id}
                 id={product.id}
-                nombre={product.nombre}
-                precio={product.precio}
-                categoria={product.categoria}
-                photo={product.photo}
+                title={product.title}
+                price={product.price}
+                category={product.category}
+                image={product.image}
               />
             ))}
           </div>

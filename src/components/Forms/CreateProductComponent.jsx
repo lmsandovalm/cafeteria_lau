@@ -17,12 +17,12 @@ const CreateProductComponent = () => {
 
   const onHandleSubmit = handleSubmit((data) => {
     console.log(data);
-    data.photo = ["https://kaoxdc.pythonanywhere.com/api/producto/"];
+    data.photo = ["https://fakestoreapi.com/products"];
 
     });
 
   useEffect(() => {
-    fetchGet("https://kaoxdc.pythonanywhere.com/api/categoria/").then((response) => {
+    fetchGet("https://fakestoreapi.com/products/categories").then((response) => {
       setListCategories(response);
     });
   }, []);
@@ -102,9 +102,9 @@ const CreateProductComponent = () => {
             type: Number,
           })}
         >
-          {listCategories.map((categoria) => (
-            <option key={categoria.id} value={categoria.id}>
-              {categoria.nombre}
+          {listCategories.map((categories) => (
+            <option key={categories} >
+              {categories}
             </option>
           ))}
         </select>
