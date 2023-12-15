@@ -17,9 +17,9 @@ const DetailProductView = () => {
       <div className="grid full justify-center items-center rounded-lg ">
         <img  src={product.image}/>
         <div className="justify-center items-center text-xl"> 
-          <h1>{product.title}</h1>
-          <h4>{product.price}</h4>
-          <p>{product.description}</p>
+          <h1>Nombre Producto: {product.title}</h1>
+          <h4>Precio: $ {product.price}</h4>
+          <p>Descripcion: {product.description}</p>
         </div>
       </div>  
       </div>
